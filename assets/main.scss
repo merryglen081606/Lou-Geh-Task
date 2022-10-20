@@ -1,0 +1,224 @@
+$main: #193C2A;
+$sub: #6D7571;
+$sub_H: #424242;
+$main: #363636;
+$gray: #363636;
+$crit: #E84D2E;
+$crit_H: #C4462C;
+$edit: #EE8400;
+$edit_H: #b86a0a;
+$success: #00A651;
+$success_H: #007A3B;
+$alert: #FEC006;
+$alert_H: #ca9800;
+$common: #5C7B7B;
+$common_H: #405353;
+$BG: #F8FFF6;
+$disabled: #F5F5F5;
+
+.login {
+    &__layout {
+        // border: 1px solid red;
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__loginform{
+        // border: 1px solid red;
+        width: 400px;
+        height: 500px;
+        text-align: center;
+    }
+    &__input{
+        margin: auto;
+        display: block;
+        height: 40px;
+        width: 300px;
+        padding: 10px 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid $gray;
+        outline: 0;
+    }
+    &__button{
+        margin: auto;
+        display: block;
+        height: 40px;
+        width: 300px;
+        border-radius: 5px;
+        outline: 0;
+        border: 0;
+        background-color: $success;
+        transition: 0.4s;
+        color: white;
+        &:hover {
+            background-color: $success_H;
+            transition: 0.4s;
+        }
+    }
+    &__title{
+        margin: auto;
+        display: block;
+        height: 40px;
+        width: 300px;
+        margin-bottom: 50px;
+        color: $main;
+    }
+}
+
+.page {
+    &__layout {
+        // border: 1px solid red;
+        width: 100%;
+        height: 100vh;
+      
+    }
+    &__header{
+        height: 60px;
+        width: 100%;
+        // border: 1px solid red;
+    }
+    &__body {
+        // border: 1px solid orange;
+        height: calc(100vh - 60px);
+        background-color: $BG;
+    }
+}
+.header{
+    &__layout{
+        // border: 1px solid red;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    &__div1 {
+        // border: 1px solid violet;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 10px;
+    }
+    &__div2 {
+        // border: 1px solid orange;
+        width: 50%;
+        height: 100%;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding-right: 10px;
+
+    }
+    &__title{
+        font-weight: bold;
+        font-size: 20px;
+        color: $main;
+        
+    }
+    &__logout {
+        color: $main;
+        margin-left: 30px;
+        background-color: $success;
+        color:white;
+        font-size: 15px;
+        height: 35px;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 100px;
+        // border:1px solid red;
+    
+    }
+}
+.notes{
+    &__layout{
+        // border: 1px solid red;
+        height: calc(100vh - 60px);
+        width: 100%;
+        padding: 25px;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+    &__note{
+        height: fit-content;
+        // border: .5px solid $main;
+        background-color: white;
+        width: calc(90% / 4);
+        display: flex;
+        justify-content: center;
+        // margin-left: 20px;
+        // margin-top: 40px;
+        display: block;
+        padding: 25px;
+        box-shadow: 5px 5px 15px -5px #4f4f4f50;
+        border-radius: 20px;
+
+        display: inline-block;
+        margin-right: 25px;
+        margin-bottom: 25px;
+    }
+    &__button{
+        height: 30px;
+        border-radius: 5px;
+        width: fit-content;
+        background-color: $common;
+        transition: 0.4s;
+        color: white;
+        font-size: 12px;
+        font-weight: bolder;
+        outline: 0;
+        border: 0;
+        padding: 0px 10px 0px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: right;
+        &:hover {
+            background-color: $common_H;
+            transition: 0.4s;
+        }
+        
+    }
+ 
+    &__header{
+        height: 40px;
+        width: 100%;
+        // border:1px solid red;
+        display: flex;
+        justify-content: flex-start;
+        align-items:center ;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        // padding-left: 10px;
+        font-size: 18px;
+        font-weight: bolder;
+      
+    }
+    &__body{
+        height: calc(100% - 80px);
+        width: 100%;
+        // padding: 10px;
+        font-size: 12px;
+        // border:1px solid red; 
+
+    }
+    &__footer{
+        height: 40px;
+        width: 100%;
+        // border:1px solid red; 
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        border-bottom-left-radius: 20px;
+        border-bottom-right-radius: 20px;
+        // padding-left: 10px;
+        // padding-right: 10px;
+      
+
+    }
+}
