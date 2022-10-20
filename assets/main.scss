@@ -141,27 +141,24 @@ $disabled: #F5F5F5;
         height: calc(100vh - 60px);
         width: 100%;
         padding: 25px;
-
+        
         overflow-y: auto;
         overflow-x: hidden;
     }
+    &__holder {
+        padding: 10px;
+        // border: 1px solid orange;
+        display: inline-block;
+        width: calc(100% / 4);
+    }
     &__note{
         height: fit-content;
-        // border: .5px solid $main;
         background-color: white;
-        width: calc(90% / 4);
-        display: flex;
-        justify-content: center;
-        // margin-left: 20px;
-        // margin-top: 40px;
+        width: 100%;
         display: block;
         padding: 25px;
         box-shadow: 5px 5px 15px -5px #4f4f4f50;
         border-radius: 20px;
-
-        display: inline-block;
-        margin-right: 25px;
-        margin-bottom: 25px;
     }
     &__button{
         height: 30px;
@@ -221,4 +218,20 @@ $disabled: #F5F5F5;
       
 
     }
+}
+.notesCrit {
+    background-color: $crit;
+    color: white;
+}
+.notesSuccess {
+    background-color: $success;
+    color: white;
+}
+.notesCommon {
+    background-color: $common;
+    color: white;
+}
+.notesEdit {
+    background-color: $edit;
+    color: white;
 }
