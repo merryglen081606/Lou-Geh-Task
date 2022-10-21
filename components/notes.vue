@@ -1,21 +1,28 @@
 <template>
   <div class="notes__layout">
     <div class="notes__filter">
-      <button :class="`notes__filterButton ${chosenTab == 1 ? 'chosenTab':''}`" @click="chooseTab(1)">
-        <font-awesome-icon icon="list"/> &nbsp; All Tasks
-      </button>
-      <button :class="`notes__filterButton ${chosenTab == 2 ? 'chosenTab':''}`" @click="chooseTab(2)">
-        <font-awesome-icon icon="square"/> &nbsp; To Dos
-      </button>
-      <button :class="`notes__filterButton ${chosenTab == 3 ? 'chosenTab':''}`" @click="chooseTab(3)">
-        <font-awesome-icon icon="bars-progress"/> &nbsp; In Progress
-      </button>
-      <button :class="`notes__filterButton ${chosenTab == 4 ? 'chosenTab':''}`" @click="chooseTab(4)">
-        <font-awesome-icon icon="square-check"/> &nbsp; Done
-      </button>
-      <button :class="`notes__filterButton ${chosenTab == 5 ? 'chosenTab':''}`" @click="chooseTab(5)">
-        <font-awesome-icon icon="ban"/> &nbsp; Cancelled
-      </button>
+      <div class="notes__filter_button">
+        <button :class="`notes__filterButton ${chosenTab == 1 ? 'chosenTab':''}`" @click="chooseTab(1)">
+          <font-awesome-icon icon="list"/> &nbsp; All Tasks
+        </button>
+        <button :class="`notes__filterButton ${chosenTab == 2 ? 'chosenTab':''}`" @click="chooseTab(2)">
+          <font-awesome-icon icon="square"/> &nbsp; To Dos
+        </button>
+        <button :class="`notes__filterButton ${chosenTab == 3 ? 'chosenTab':''}`" @click="chooseTab(3)">
+          <font-awesome-icon icon="bars-progress"/> &nbsp; In Progress
+        </button>
+        <button :class="`notes__filterButton ${chosenTab == 4 ? 'chosenTab':''}`" @click="chooseTab(4)">
+          <font-awesome-icon icon="square-check"/> &nbsp; Done
+        </button>
+        <button :class="`notes__filterButton ${chosenTab == 5 ? 'chosenTab':''}`" @click="chooseTab(5)">
+          <font-awesome-icon icon="ban"/> &nbsp; Cancelled
+        </button>
+     </div>
+
+     <div class="notes__filter_search">
+      <input placeholder="Search here"  class="notes__searchbar" v-model="find" @focus="chooseTab(1)">
+     </div>
+    
     </div>
 
     <div class="notes__scroller">
@@ -77,7 +84,8 @@ data() {
         status: "Cancelled",
         class: "notesCrit"
       },
-    ]
+    ],
+    find: ""
   }
 },
 methods: {
@@ -115,7 +123,7 @@ methods: {
   getNotes() {
     this.notes = [];
 
-    for(var x=0; x < 8; x++) {
+    for(var x=0; x < 18; x++) {
       this.notes.push(
         {
           id: "n"+x,
@@ -144,7 +152,15 @@ computed: {
   },
   notes_list() {
     return this.$store.getters.getNotes.filter(data => {
-      return ( String(data.status).toLowerCase().includes(this.tab_key) );
+      if(this.find != "") {
+        return (
+          String(data.title).toLowerCase().includes(this.find) || 
+          String(data.desc).toLowerCase().includes(this.find)
+        );
+      }
+      else {
+        return (String(data.status).toLowerCase().includes(this.tab_key));
+      }
     });
   },
   current_card() {
