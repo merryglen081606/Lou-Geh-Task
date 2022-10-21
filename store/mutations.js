@@ -7,6 +7,10 @@ export default {
 
         // FIND BY INDEX
         state.notes[data.key].status = data.status;
+        state.notes[data.key].class = data.class;
+    },
+    openCard(state, index) {
+        state.current_card = index;
     },
     store_notes_list(state, notes) {
         state.notes = notes;

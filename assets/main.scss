@@ -1,7 +1,7 @@
 $main: #193C2A;
+$main_H: #091b12;
 $sub: #6D7571;
 $sub_H: #424242;
-$main: #363636;
 $gray: #363636;
 $crit: #E84D2E;
 $crit_H: #C4462C;
@@ -15,6 +15,24 @@ $common: #5C7B7B;
 $common_H: #405353;
 $BG: #F8FFF6;
 $disabled: #F5F5F5;
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: $success;
+}
 
 .login {
     &__layout {
@@ -83,7 +101,7 @@ $disabled: #F5F5F5;
     &__body {
         // border: 1px solid orange;
         height: calc(100vh - 60px);
-        background-color: $BG;
+        // background-color: $BG;
     }
 }
 .header{
@@ -142,23 +160,54 @@ $disabled: #F5F5F5;
         width: 100%;
         padding: 25px;
         
-        overflow-y: auto;
-        overflow-x: hidden;
+
     }
     &__holder {
         padding: 10px;
         // border: 1px solid orange;
         display: inline-block;
-        width: calc(100% / 4);
+        width: calc(100% / 5);
+        position: relative;
     }
     &__note{
         height: fit-content;
-        background-color: white;
+        background-color: #ffffff;
         width: 100%;
         display: block;
-        padding: 25px;
+        padding: 10px 15px;
+        // box-shadow: 0px 0px 15px -5px #4f4f4f50;
+        border: 1px solid #d4d4d4;
+        border-radius: 5px;
+    }
+    &__dropDown {
+        width: 150px;
+        height: fit-content;
+        // height: 150px;
+        border-radius: 10px;
+        background: white;
+        // border: 1px solid red;
+
+        position: absolute;
+        top: 185px;
+        right: 10px;
+        z-index: 1;
+
+        padding: 10px;
         box-shadow: 5px 5px 15px -5px #4f4f4f50;
-        border-radius: 20px;
+        border-top: 3px solid $common;
+        border-bottom: 3px solid $common;
+        border-right: 1px solid $common;
+        border-left: 1px solid $common;
+    }
+    &__statuss {
+        // border: 1px solid red;
+        padding: 5px 10px;
+        border-radius: 5px;
+        &:hover {
+            background: $common;
+            color: white;
+        }
+        cursor: pointer;
     }
     &__button{
         height: 30px;
@@ -175,13 +224,33 @@ $disabled: #F5F5F5;
         display: flex;
         justify-content: center;
         align-items: right;
-        &:hover {
-            background-color: $common_H;
-            transition: 0.4s;
-        }
-        
     }
- 
+    &__scroller {
+        // border: 1px solid red;
+        height: calc(100vh - 147px);
+
+        overflow-y: auto;
+        overflow-x: hidden;
+        // background: $BG;
+    }
+    &__filter {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+        // justify-content: flex-end;
+        justify-content: left;
+        border-bottom: 3px solid $success;
+        margin-bottom: 25px;
+    }
+    &__filterButton {
+        color: $sub;
+        outline: 0;
+        border: 0;
+        border-radius: 5px 5px 0 0;
+        padding: 5px 20px;
+        margin-right: 5px;
+    }
     &__header{
         height: 40px;
         width: 100%;
@@ -194,7 +263,6 @@ $disabled: #F5F5F5;
         // padding-left: 10px;
         font-size: 18px;
         font-weight: bolder;
-      
     }
     &__body{
         height: calc(100% - 80px);
@@ -222,16 +290,53 @@ $disabled: #F5F5F5;
 .notesCrit {
     background-color: $crit;
     color: white;
+    &:hover {
+        background-color: $crit_H;
+        transition: 0.4s;
+    }
 }
 .notesSuccess {
     background-color: $success;
     color: white;
+    &:hover {
+        background-color: $success_H;
+        transition: 0.4s;
+    }
 }
 .notesCommon {
     background-color: $common;
     color: white;
+    &:hover {
+        background-color: $common_H;
+        transition: 0.4s;
+    }
 }
 .notesEdit {
     background-color: $edit;
+    color: white;
+    &:hover {
+        background-color: $edit_H;
+        transition: 0.4s;
+    }
+}
+.notesAll {
+    background-color: $main;
+    color: white;
+    &:hover {
+        background-color: $main_H;
+        transition: 0.4s;
+    }
+}
+.notesSub {
+    background-color: $sub;
+    color: white;
+    &:hover {
+        background-color: $sub_H;
+        transition: 0.4s;
+    }
+}
+
+.chosenTab {
+    background-color: $success;
     color: white;
 }

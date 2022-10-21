@@ -4,5 +4,8 @@ export default {
     },
     getNotes(state) {
         return state.notes;
+    },
+    getOpenCard(state) {
+      return state.current_card;
     }
 }
